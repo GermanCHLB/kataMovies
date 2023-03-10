@@ -2,7 +2,17 @@ import React from 'react'
 import { Col, Row } from 'antd'
 
 import Card from './Card'
-const CardList = ({ data }) => {
+import Loader from './Loader'
+import ErrorAlert from './ErrorAlert'
+const CardList = ({ data, isLoading, isError }) => {
+  if (isError) {
+    return <ErrorAlert />
+  }
+
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <div>
       <Row gutter={[18, 36]}>

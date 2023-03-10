@@ -9,14 +9,24 @@ export default class App extends Component {
   state = {
     data: [],
     searchQuerry: 'return',
+    loading: true,
+    error: false,
   }
   render() {
-    tmdb.getData(this.state.searchQuerry).then((res) => {
-      this.setState({ data: res })
-    })
+    tmdb
+      .getData(this.state.searchQuerry)
+      .then((res) => {
+        this.setState({ data: res })
+        this.setState({ loading: false })
+      })
+      .catch((err) => {
+        console.log(err)
+        this.setState({ error: true })
+        this.setState({ loading: false })
+      })
     return (
       <div className="App">
-        <CardList data={this.state.data} />
+        <CardList data={this.state.data} isLoading={this.state.loading} isError={this.state.error} />
       </div>
     )
   }

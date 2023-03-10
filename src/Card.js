@@ -12,7 +12,13 @@ const descriptionShorter = (description) => {
     }
   })
 
-  newDescription += ' ...'
+  if (description.length > 150) {
+    newDescription += ' ...'
+  }
+
+  if (description.length === 0) {
+    return 'No description.'
+  }
 
   return newDescription
 }

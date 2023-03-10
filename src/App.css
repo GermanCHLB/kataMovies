@@ -12,6 +12,7 @@ body {
 
 .App {
   width: 1010px;
+  height: 100vh;
   background-color: #fff;
   padding: 13px 36px 18px;
   font-family: 'Inter', sans-serif;
@@ -59,4 +60,12 @@ body {
 .card__genres {
   list-style-type: none;
   margin-top: 7px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
