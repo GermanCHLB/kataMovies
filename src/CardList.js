@@ -4,6 +4,7 @@ import { Col, Row } from 'antd'
 import Card from './Card'
 import Loader from './Loader'
 import ErrorAlert from './ErrorAlert'
+import NotFinedAlert from './NotFinedAlert'
 const CardList = ({ data, isLoading, isError }) => {
   if (isError) {
     return <ErrorAlert />
@@ -13,8 +14,12 @@ const CardList = ({ data, isLoading, isError }) => {
     return <Loader />
   }
 
+  if (data.length === 0) {
+    return <NotFinedAlert />
+  }
+
   return (
-    <div>
+    <div className="card-list">
       <Row gutter={[18, 36]}>
         {data.map((el) => {
           return (
