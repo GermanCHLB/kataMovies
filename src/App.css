@@ -12,35 +12,67 @@ body {
 
 .App {
   min-height: 100vh;
-  width: 1010px;
-  background-color: #fff;
-  padding: 13px 36px 18px;
+  max-width: 1010px;
   font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  padding: 0 16px 20px;
 }
 
 .card {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  height: 280px;
-  display: flex;
+  display: grid;
+  height: 245px;
+  min-width: 387px;
+  grid-template-areas:
+    'img header'
+    'body body';
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 91px 1fr;
+  column-gap: 10px;
+  padding: 6px 10px;
 }
 
 .card__imageWrapper {
-  width: 180px;
-  height: 100%;
+  width: 60px;
+  height: 91px;
+  grid-area: img;
 }
 
 .card__img {
-  width: 180px;
-  height: 100%;
+  width: 60px;
+  height: 91px;
 }
 
-.card__textWrapper {
-  padding: 12px 9px 12px 20px;
+.card__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-content: start;
+  width: 100%;
+  grid-area: header;
+  position: relative;
+}
+
+.card__body {
+  grid-area: body;
+}
+
+.card__progress {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+}
+
+.card__rate {
+  position: absolute;
+  bottom: 30px;
+  right: 25px;
 }
 
 .card__title {
   font-size: 20px;
   line-height: 28px;
+  width: 100%;
 }
 
 .card__date {
@@ -48,6 +80,7 @@ body {
   line-height: 22px;
   color: #827e7e;
   margin-top: 7px;
+  width: 100%;
 }
 
 .card__description {
@@ -60,6 +93,20 @@ body {
 .card__genres {
   list-style-type: none;
   margin-top: 7px;
+  width: 100%;
+}
+
+.card__genre {
+  font-size: 12px;
+  line-height: 14.52px;
+  color: rgba(0, 0, 0, 0.65);
+  padding: 3px;
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 2px;
+  margin-bottom: 5px;
 }
 
 .loader {
@@ -67,7 +114,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 75vh;
-  width: 100%;
+  width: 1010px;
 }
 
 .search {
@@ -79,4 +126,45 @@ body {
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+
+.ant-rate-star {
+  font-size: 17px;
+}
+
+.ant-progress-inner {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 12px !important;
+}
+
+@media (min-width: 600px) {
+  .card {
+    min-width: 454px;
+    height: 281px;
+  }
+
+  .App {
+    padding: 30px 36px 20px;
+  }
+
+  .card {
+    grid-template-areas:
+      'img header'
+      'img body';
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 183px 1fr;
+    padding: 0;
+    column-gap: 20px;
+  }
+
+  .card__img {
+    width: 180px;
+    height: 100%;
+  }
+
+  .card__imageWrapper {
+    width: 180px;
+    height: 100%;
+  }
 }

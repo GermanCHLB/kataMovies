@@ -5,7 +5,7 @@ import Card from './Card'
 import Loader from './Loader'
 import ErrorAlert from './ErrorAlert'
 import NotFinedAlert from './NotFinedAlert'
-const CardList = ({ data, isLoading, isError, tmdb, sessionId, addRate, ratedIds }) => {
+const CardListRated = ({ data, isLoading, isError, tmdb, sessionId, addRate, ratedIds }) => {
   if (isError) {
     return <ErrorAlert />
   }
@@ -44,4 +44,4 @@ const CardList = ({ data, isLoading, isError, tmdb, sessionId, addRate, ratedIds
   )
 }
 
-export default CardList
+export default CardListRated
